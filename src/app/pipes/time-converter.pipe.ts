@@ -17,9 +17,9 @@ export class TimeConverterPipe implements PipeTransform {
     var rminutes = Math.round(minutes); 
 
     if(rhours == 0){
-      return rminutes + "min";
+      return rminutes + " min";
     }else{
-      return rhours + " hour(s) and " + rminutes + " min";
+      return rhours + " hr " + rminutes + " min";
     }
 
    

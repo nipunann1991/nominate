@@ -54,6 +54,10 @@ export class JourneysService {
           title
           type
           topics
+          credits
+          authorS{
+            name
+          }
           templates {
             ... on TemplateFreeText {
               id

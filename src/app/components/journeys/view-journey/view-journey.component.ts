@@ -49,10 +49,17 @@ export class ViewJourneyComponent implements OnInit {
     let totalDuration = [];
     let articleDuration = [];
     let articleData = [];
+    let articleAuthours = [];
+    let articleCredits = [];
 
     data.articles.filter(x=> {
         categories = categories.concat(x.topics);
-        articleDuration = [0]
+        articleCredits  = articleCredits.concat(x.credits) 
+        articleDuration = [0];
+
+        x.authorS.filter(y => {
+          articleAuthours = articleAuthours.concat(y.name) 
+        })
 
         x.templates.filter(y => {
           articleDuration = articleDuration.concat(y.duration)
@@ -65,7 +72,7 @@ export class ViewJourneyComponent implements OnInit {
       
       let uniqueCategories = [...new Set(categories)]; 
        
-      let journies = {
+      this.journeyData = {
         id: data.id,
         title: data.title,
         coverImage: data.coverImage?.url,
@@ -73,13 +80,14 @@ export class ViewJourneyComponent implements OnInit {
         appendix: data.appendix,
         categories: uniqueCategories,
         totalDuration: totalDuration.reduce((a,b) => b + (a ? a : a)), 
-        articles: articleData
-      }
+        articles: articleData,
+        credits: articleCredits.reduce((a,b) => b + (a ? a : a)),
+        authours: articleAuthours
+      }  
+  }
 
-      this.journeyData = journies; 
-
-      console.log( this.journeyData )
-     
+  getAuthers(authers){ 
+    return authers?.toString().replace(",", ", ")
   }
 
 }

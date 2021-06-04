@@ -8,7 +8,9 @@
                 <ul>
                     <li>General</li>
                     <li>{{ journeyData.totalDuration | timeConverter}}</li>
+                    <li>{{journeyData.credits}} CPD Credits</li>
                 </ul>
+                <p>Created by {{ getAuthers(journeyData.authours) }}</p>
 
                 <h2>About this journey</h2>
                 <p [innerHTML]="journeyData.summary"></p>
@@ -28,12 +30,13 @@
             <div class="journey-steps col-md-12">
                 <h2>Journey steps</h2>  
                 <ul class="journey-desc">
-                    <li>{{journeyData.articles?.length}} Articles</li>
+                    <li>{{journeyData.articles?.length}} articles</li>
                     <li>{{journeyData.totalDuration | timeConverter}}</li>
+                    <li>{{journeyData.credits}} CPD Credits</li>
                 </ul> 
                 <ul class="journey-articles">
                     <li class="articles" *ngFor="let article of journeyData.articles">
-                        <strong>{{article.title}}</strong> <span class="duration">{{article.duration | timeConverter}} {{article.type}}</span>
+                        <strong>{{article.title}}</strong> <span class="duration">{{article.duration | timeConverter}} {{article.type | lowercase}}</span>
                     </li> 
                 </ul> 
             </div>
