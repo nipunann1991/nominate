@@ -1,0 +1,47 @@
+ <div class="articles-header">
+     <div class="left-title">
+        <h2>Latest articles</h2>
+        <p>The latest hints and tips carefully handpicked to grow your business.</p>
+     </div> 
+     <div class="sort-list">
+        <select name="topic" class="topic" (change)="onChangeTopics($event.target.value)">
+            <option value="">Browse All Topics</option>
+            <option *ngFor="let topic of topics" [value]="topic">{{cleanTopicTitles(topic)}}</option>
+        </select>
+     </div>
+   
+</div>
+
+ <div class="row articles-wrapper">
+
+    <ng-container *ngIf="articles.length > 0">
+        <div class="article-box" *ngFor="let article of articles; let i = index" >
+            <div class="article-box-inner" >
+                <div class="image-area" *ngIf="i<2">
+                    <img [src]="article.coverImage?.url" alt="">
+                </div>
+                <div class="title-n-description-area">
+                    <h3>{{article.title}}</h3>
+                    <p *ngIf="i<1" [innerHTML]="article.description"></p>
+                </div>
+                <div class="footer-area">
+                    <div class="topics">
+                        <ul>
+                            <li>{{article.topics[0]}}</li>
+                            <li>{{article.authorS[0]?.name}}</li>
+                        </ul>
+    
+                        <a href="">Read Article</a>
+                    </div>
+    
+                </div>
+            </div> 
+        </div>
+    </ng-container> 
+    <ng-container *ngIf="articles.length == 0">
+        <h4>No results found.</h4>
+    </ng-container>
+    
+ </div>
+
+ 

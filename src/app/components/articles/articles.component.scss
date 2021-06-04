@@ -1,0 +1,23 @@
+
+.articles-header{
+    display: flex;
+
+    .sort-list{
+        margin-left: auto;
+
+        select{
+            padding: 0.1rem 0.5rem;
+        }
+    }
+}
+.article-box{
+    width: 33.33%;
+
+    .article-box-inner{
+        .image-area{
+            img{
+                width: 100%;
+            }
+        }
+    }
+}
