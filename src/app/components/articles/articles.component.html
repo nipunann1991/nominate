@@ -46,9 +46,9 @@
                             <li><span></span></li>
                             <li>{{article.authorS[0]?.name}}</li>
                         </ul>
-    
-                        <a href="" class="read-article-button v">Read article</a>
-                        
+     
+                        <a [routerLink]="['/articles/view-article/'+article.id ]" class="read-article-button v">Read article</a>
+ 
                     </div>
 
                     <!--Not for the first article // HIDDEN in the first article-->
