@@ -19,7 +19,9 @@
                 <h3>{{journey.title}}</h3> 
                 <ul>
                     <li><span></span></li>
-                    <li *ngFor="let category of journey.categories">{{category}}</li>
+                    <li *ngFor="let category of journey.categories; let i = index;" >
+                        <ng-container *ngIf="i < 2">{{category | beautifyText}}</ng-container> 
+                    </li>
                     
                 </ul> 
                 <span class="duration">{{journey.totalDuration | timeConverter }}</span> 

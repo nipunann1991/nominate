@@ -5,10 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 
 export class TimeConverterPipe implements PipeTransform {
-  // static forRoot(): any[] | import("@angular/core").Type<any> {
-  //   throw new Error('Method not implemented.');
-  // }
-   
+ 
   transform(value: number): string {
     var num = value;
     var hours = (num / 60);

@@ -26,7 +26,8 @@ export class JourneysComponent implements OnInit {
     this.apollo.watchQuery({
       query: this.journey.getJourneys(),
     }).valueChanges.subscribe((results: any) => {
-  
+      
+      console.log(results)
       this.setJourneyData(results.data.journeys)
 
     });
@@ -43,8 +44,9 @@ export class JourneysComponent implements OnInit {
 
       element.articles.filter(x=> {
         categories = categories.concat(x.topics);
-
+         
         x.templates.filter(y => {
+         
           totalDuration = totalDuration.concat(y.duration); 
         })
 
@@ -52,12 +54,14 @@ export class JourneysComponent implements OnInit {
       }); 
       
       let uniqueCategories = [...new Set(categories)]; 
+
+     
        
       let journies = {
         id: element.id,
         title: element.title,
         categories: uniqueCategories,
-        totalDuration: totalDuration.reduce((a,b) => b + (a ? a : a)),
+        totalDuration: totalDuration.reduce((a,b) => { return b + (a ? a : a) },0),
         url: "/journeys/view-journey/"+element.id
       }
 
