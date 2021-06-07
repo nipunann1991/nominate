@@ -1,6 +1,6 @@
 <div class="container-fluid article-page">
     <div class="container">
-        <div class="cover-img">
+        <div class="cover-img"  [ngStyle]="{'background-image': 'url('+articleData.coverImage?.url+')' }" >
             <img [src]="articleData.coverImage?.url" alt="">
         </div>
         <div class="article-content row">
@@ -34,8 +34,24 @@
             <ul>
                 <li>{{ articleData.topics }}</li>
                 <li>{{ articleData.templates?.length }} sections</li>
+                <li>{{ articleData.templates?.length }} </li>
             </ul>
-        </div>
+        </div> 
+        <ng-container *ngFor="let template of articleData.templates; let i = index;" >
+            <div id="section{{i + 1}}" class="template-section" >
+                <div class="template-video"  *ngIf="template.__typename == 'TemplateVideo'" > 
+                    <iframe [src]="trustURL(template.vimeoVideoUrl)" width="800" height="500" frameborder="0"></iframe>
+                </div>
+                <div class="template-cover-img"  *ngIf="template.__typename == 'TemplateFreeText'" >
+                    <img [src]="template.coverImage?.url" alt="">
+                </div>
+                <h2>{{template.title}}</h2>
+                <p [innerHTML]="template.bodyContent?.html"></p>
+                <button class="btn btn-primary">Continue</button> 
+            </div> 
+        </ng-container> 
     </div>
 </div>
+
+ 
  

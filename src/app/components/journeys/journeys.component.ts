@@ -26,8 +26,7 @@ export class JourneysComponent implements OnInit {
     this.apollo.watchQuery({
       query: this.journey.getJourneys(),
     }).valueChanges.subscribe((results: any) => {
-      
-      console.log(results)
+       
       this.setJourneyData(results.data.journeys)
 
     });
