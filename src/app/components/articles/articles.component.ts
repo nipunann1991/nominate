@@ -40,6 +40,18 @@ export class ArticlesComponent implements OnInit {
 
       this.articles = results.data.articles 
 
+      let articleList = {
+        left: [],
+        right: [],
+        length: 0
+      }
+      
+      console.log(results.data.articles )
+
+      results.data.articles.filter((x,i) => (i==0)? articleList.left.push(x) : articleList.right.push(x) );
+      articleList.length = results.data.articles.length;
+      this.articles = articleList;
+      console.log(this.articles)
     });
   }
 
