@@ -79,9 +79,9 @@ export class ViewJourneyComponent implements OnInit {
         summary: data.summary,
         appendix: data.appendix,
         categories: uniqueCategories,
-        totalDuration: totalDuration.reduce((a,b) => b + (a ? a : a)), 
+        totalDuration: totalDuration.reduce((a,b) => { return b + (a ? a : a) },0), 
         articles: articleData,
-        credits: articleCredits.reduce((a,b) => b + (a ? a : a)),
+        credits: articleCredits.reduce((a,b) => { return b + (a ? a : a) },0),
         authours: articleAuthours
       }  
   }

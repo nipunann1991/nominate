@@ -25,6 +25,8 @@ export class JourneysService {
             }
             ... on TemplateHorizontalTab {
               id
+              title
+              duration
             }
             ... on TemplateVideo {
               id
@@ -66,6 +68,8 @@ export class JourneysService {
             }
             ... on TemplateHorizontalTab {
               id
+              title
+              duration
             }
             ... on TemplateVideo {
               id
