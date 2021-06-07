@@ -4,7 +4,46 @@
     cursor: pointer;
 
     .journey-box-inner{
-        border: 1px solid;
-        padding: 1.5rem;
+        border: 2px solid #3C3C3B;
+        padding: 2rem 1.5rem;
+        margin-bottom: 2rem;
+
+        .logo-cta {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+
+            img.logo-icon {
+                width: 90px;
+                height: 57px;
+            }
+            a.new-button {
+                max-width: 150px;
+                line-height: 1.5;
+                background-color: #5757F7;
+                
+            }
+        }
+
+        ul {
+            li {
+                text-transform: uppercase;
+            }
+        }
+
+        .duration {
+            color: #666666;
+            margin: 1rem 0 0 0;
+            display: block;
+        }
+
+        .rating {
+            margin: 4rem 0 0 0;
+
+            .checked {
+                color: orange;
+              }
+        }
     }
 }

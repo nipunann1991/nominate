@@ -1,7 +1,7 @@
- <div class="articles-header">
-     <div class="left-title">
+ <div class="articles-header header-title">
+     <div class="left-title header ">
         <h2>Latest articles</h2>
-        <p>The latest hints and tips carefully handpicked to grow your business.</p>
+        <p class="header-body">The latest hints and tips carefully handpicked to grow your business.</p>
      </div> 
      <div class="sort-list">
         <select name="topic" class="topic" (change)="onChangeTopics($event.target.value)">
@@ -17,6 +17,21 @@
     <ng-container *ngIf="articles.length > 0">
         <div class="article-box" *ngFor="let article of articles; let i = index" >
             <div class="article-box-inner" >
+                <!--Not for the first article // HIDDEN in the first article-->
+                <div class="title-n-description-area">
+                    <div class="header-area">
+                        <div class="topics">
+                            <ul>
+                                <li>{{article.topics[0]}}</li>
+                                <li><span></span></li>
+                                <li>{{article.authorS[0]?.name}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- -->
+
+
                 <div class="image-area" *ngIf="i<2">
                     <img [src]="article.coverImage?.url" alt="">
                 </div>
@@ -28,13 +43,17 @@
                     <div class="topics">
                         <ul>
                             <li>{{article.topics[0]}}</li>
+                            <li><span></span></li>
                             <li>{{article.authorS[0]?.name}}</li>
                         </ul>
-    
-                        <a [routerLink]="['/articles/view-article/'+article.id ]">Read Article</a>
-                        
+     
+                        <a [routerLink]="['/articles/view-article/'+article.id ]" class="read-article-button v">Read article</a>
+ 
                     </div>
-    
+
+                    <!--Not for the first article // HIDDEN in the first article-->
+                    <div class="sub-read-article-link"><a href="" class="read-article-link button">Read article</a></div>
+                    <!-- -->
                 </div>
             </div> 
         </div>
