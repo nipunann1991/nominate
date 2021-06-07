@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Apollo, gql } from 'apollo-angular';
 import { ArticleService } from "../services/article.service";
 import { Router, ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
+import { DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-view-article',
@@ -16,7 +17,8 @@ export class ViewArticleComponent implements OnInit {
     private apollo: Apollo,
     private article: ArticleService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private sanitizer: DomSanitizer
   ) { }
 
   ngOnInit(): void {
@@ -38,4 +40,7 @@ export class ViewArticleComponent implements OnInit {
     });
   }
 
+  trustURL(url) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
 }

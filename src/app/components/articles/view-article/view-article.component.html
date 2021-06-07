@@ -51,4 +51,18 @@
         <li>{{ articleData.templates?.length }} sections</li>
     </ul>
 </section>
- 
+
+
+<ng-container *ngFor="let template of articleData.templates; let i = index;" >
+    <div id="section{{i + 1}}" class="template-section" >
+        <div class="template-video"  *ngIf="template.__typename == 'TemplateVideo'" > 
+            <iframe [src]="trustURL(template.vimeoVideoUrl)" width="800" height="500" frameborder="0"></iframe>
+        </div>
+        <div class="template-cover-img"  *ngIf="template.__typename == 'TemplateFreeText'" >
+            <img [src]="template.coverImage?.url" alt="">
+        </div>
+        <h2>{{template.title}}</h2>
+        <p [innerHTML]="template.bodyContent?.html"></p>
+        <button class="btn btn-primary">Continue</button> 
+    </div> 
+</ng-container> 

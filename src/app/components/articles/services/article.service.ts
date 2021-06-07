@@ -82,11 +82,12 @@ export class ArticleService {
           }
           ... on TemplateVideo {
             id
+            duration
+            title
+            vimeoVideoUrl
             bodyContent {
               html
             }
-            duration
-            title
           }
         }
       }
