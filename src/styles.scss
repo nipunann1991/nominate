@@ -2,7 +2,8 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+//@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
 
 $slate-grey:        #171714;
 $subhead-grey:      #7E7E7E;
@@ -105,8 +106,32 @@ a {
     padding: 1rem 0;
     margin: 2rem 0; 
  
-    p.header-body {
-        width: 50%;
+    // p.header-body {
+    //     width: 50%;
+    // }
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.topics {
+    ul {
+        li {
+            margin: 0 3rem 0 0;
+            &:not(:first-child) {
+                &:before {
+                    content: '';
+                    position: absolute;
+                    left: -25px;
+                    width: 6px; 
+                    height: 6px;
+                    border-radius: 50%;
+                    background-color: #5757F7;
+                  }
+            }
+        }
     }
 }
 
