@@ -89,6 +89,20 @@ export class ArticleService {
               html
             }
           }
+          ... on TemplateHorizontalTab {
+            id
+            title
+            duration
+            bodyContent {
+              html
+            }
+            tabsContent {
+              tabheadertitle
+              content {
+                html
+              }
+            }
+          }
         }
       }
     }`

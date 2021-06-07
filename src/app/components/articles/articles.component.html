@@ -46,7 +46,7 @@
                 
                             </div>
                 
-                            <div *ngIf="i != 0 " class="sub-read-article-link"><a href="" class="read-article-link button">Read article</a></div>
+                           
                             
                         </div>
                     </div> 
@@ -73,16 +73,15 @@
                             </div>
                         </div>  
                 
-                        <div class="image-area" *ngIf="i<2">
+                        <div class="image-area" *ngIf="i<1">
                             <img [src]="article.coverImage?.url" alt="">
                         </div>
                         <div class="title-n-description-area">
                             <h3>{{article.title}}</h3>
-                            <p *ngIf="i<1" [innerHTML]="article.description"></p>
+                            <p *ngIf="i<0" [innerHTML]="article.description"></p>
                         </div>
                         <div class="footer-area">
-                            <div *ngIf="i != 0 " class="sub-read-article-link"><a href="" class="read-article-link button">Read article</a></div>
-                            
+                            <div class="sub-read-article-link"><a [routerLink]="['/articles/view-article/'+article.id ]" class="read-article-link button">Read article</a></div>
                         </div>
                     </div> 
                 </div>   

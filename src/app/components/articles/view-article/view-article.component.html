@@ -36,7 +36,7 @@
                 <h3>Topics</h3>
                 <ul>
                     <li class="d-flex" *ngFor="let template of articleData.templates; let i = index">
-                        <a href="#">{{i + 1}}. {{template.title}}</a><span class="duration"> {{template.duration | timeConverter}}</span>
+                        <a href="javascript:void(0)" (click)="scrollToSection(i)">{{i + 1}}. {{template.title}}</a><span class="duration"> {{template.duration | timeConverter}}</span>
                     </li>
                 </ul>
             </div>            
@@ -63,6 +63,28 @@
         </div>
         <h2>{{template.title}}</h2>
         <p [innerHTML]="template.bodyContent?.html"></p>
-        <button class="btn btn-primary">Continue</button> 
+
+        <ng-container *ngIf="template.__typename == 'TemplateHorizontalTab'"> 
+             
+                <ul class="nav nav-tabs" id="myTab" role="tablist" >
+                    <li class="nav-item" *ngFor="let tab of template.tabsContent; let i = index;">
+                      <button class="nav-link" [ngClass]="{'active': i == 0}" [attr.data-bs-target]="'#tab' + i"   id="tab-{{i}}" data-bs-toggle="tab"  type="button" role="tab" >{{tab.tabheadertitle}} {{i}}</button>
+                    </li>
+                    
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                 
+                    <div *ngFor="let tab of template.tabsContent; let i = index;" class="tab-pane fade" [ngClass]="{'show active': i == 0 }" id="tab{{i}}" role="tabpanel">
+                        <div [innerHTML]="tab.content?.html"></div>
+                    </div>
+                     
+                </div> 
+
+                
+             
+        </ng-container>
+        
+          
+        <button class="btn btn-primary" (click)="scrollToSection(i + 1 )" >Continue</button> 
     </div> 
 </ng-container> 

@@ -3,7 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { ViewArticleComponent } from './view-article.component';
 
-const routes: Routes = [{ path: '', component: ViewArticleComponent }];
+const routes: Routes = [
+  { path: '', component: ViewArticleComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

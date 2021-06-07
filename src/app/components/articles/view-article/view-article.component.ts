@@ -3,6 +3,7 @@ import { Apollo, gql } from 'apollo-angular';
 import { ArticleService } from "../services/article.service";
 import { Router, ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
 import { DomSanitizer} from '@angular/platform-browser';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-view-article',
@@ -18,11 +19,12 @@ export class ViewArticleComponent implements OnInit {
     private article: ArticleService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private viewportScroller: ViewportScroller
   ) { }
 
   ngOnInit(): void {
-    this. getSingleArticle()
+    this. getSingleArticle() 
   }
 
 
@@ -43,4 +45,8 @@ export class ViewArticleComponent implements OnInit {
   trustURL(url) {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
+
+  scrollToSection(elementId): void { 
+    this.viewportScroller.scrollToAnchor("section"+(elementId + 1));
+  } 
 }
