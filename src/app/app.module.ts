@@ -6,11 +6,15 @@ import { AppComponent } from './app.component';
 import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AppSharedModule } from './app.shared.module';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent,  
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,  
   ],
   imports: [
     BrowserModule,

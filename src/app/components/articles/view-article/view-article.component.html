@@ -1,41 +1,54 @@
-<div class="container-fluid article-page">
-    <div class="container">
-        <div class="cover-img">
-            <img [src]="articleData.coverImage?.url" alt="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<nav class="container" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Journey: Google Data Studio for small Businesses</a></li>
+        <li>></li>
+        <li class="breadcrumb-item active" aria-current="page">Search Engine Optimisation (SEO)</li>
+    </ol>
+</nav>
+
+<section class="container-fluid article-page">
+    <div class="row">
+        <div class="col-lg-12 cover-img" [ngStyle]="{'background-image': 'url('+articleData.coverImage?.url+')' }"></div>        
+    </div>
+</section>
+
+<section class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 px-5">
+            <h2>{{articleData.title}}</h2>
+            <p [innerHTML]="articleData.description"></p>
+
+            <ul class="authors d-flex">
+                <li class="d-flex" *ngFor="let author of articleData.authorS">                    
+                    <img [src]="author.profile_image?.url" alt="">
+                    <div>
+                        <strong>{{author.name}}</strong>
+                        <p>{{author.title}}</p>
+                    </div>
+                </li>
+            </ul>
+
         </div>
-        <div class="article-content row">
-            <div class="col-md-6">
-               <h1>{{articleData.title}}</h1>
-               <p [innerHTML]="articleData.description"></p>
-
-                <ul>
-                    <li class="authers" *ngFor="let author of articleData.authorS">
-                        <div class="profile-img">
-                            <img [src]="author.profile_image?.url" alt="">
-                        </div>
-                        <div class="profile-data">
-                            <strong>{{author.name}}</strong>
-                            <p>{{author.title}}</p>
-                        </div>
-                    </li>
-                </ul>
-
-            </div>
-            <div class="col-md-6">
+        <div class="col-lg-5 d-flex justify-content-center">
+            <div class="topic-list-holder">
                 <h3>Topics</h3>
                 <ul>
-                    <li *ngFor="let template of articleData.templates; let i = index">
-                       {{i + 1}}. {{template.title}}  <span class="duration"> {{template.duration | timeConverter}}</span>
+                    <li class="d-flex" *ngFor="let template of articleData.templates; let i = index">
+                        <a href="#">{{i + 1}}. {{template.title}}</a><span class="duration"> {{template.duration | timeConverter}}</span>
                     </li>
                 </ul>
-            </div>
-        </div>
-        <div class="article-content-summery">
-            <ul>
-                <li>{{ articleData.topics }}</li>
-                <li>{{ articleData.templates?.length }} sections</li>
-            </ul>
+            </div>            
         </div>
     </div>
-</div>
+</section>
+
+<section class="container journey-micro-data">
+    <ul class="d-flex align-items-center">
+        <li>{{ articleData.topics }}</li>
+        <li><i class="fa fa-circle"></i></li>
+        <li>{{ articleData.templates?.length }} sections</li>
+    </ul>
+</section>
  
