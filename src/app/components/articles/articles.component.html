@@ -31,7 +31,8 @@
                             <li>{{article.authorS[0]?.name}}</li>
                         </ul>
     
-                        <a href="">Read Article</a>
+                        <a [routerLink]="['/articles/view-article/'+article.id ]">Read Article</a>
+                        
                     </div>
     
                 </div>

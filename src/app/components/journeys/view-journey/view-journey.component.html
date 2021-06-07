@@ -7,7 +7,7 @@
                 <h1>{{journeyData.title}}</h1>
                 <ul>
                     <li>General</li>
-                    <li>{{ journeyData.totalDuration | timeConverter}}</li>
+                    <li>{{journeyData.totalDuration | timeConverter}}</li>
                     <li>{{journeyData.credits}} CPD Credits</li>
                 </ul>
                 <p>Created by {{ getAuthers(journeyData.authours) }}</p>

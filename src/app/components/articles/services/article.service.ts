@@ -45,5 +45,54 @@ export class ArticleService {
     }`
 
   }
+
+
+  getSingleArticle(params){   
+   
+    return gql`
+    {
+      article(where: {id: "${params.selectedID.toString()}" }) {
+        id
+        title
+        topics
+        credits
+        description
+        coverImage {
+          url
+        }
+        authorS {
+          id
+          name
+          title
+          profile_image {
+            url
+          }
+        }
+        templates {
+          ... on TemplateFreeText {
+            id
+            duration
+            title
+            createdBy {
+              picture
+            }
+            bodyContent {
+              html
+            }
+          }
+          ... on TemplateVideo {
+            id
+            bodyContent {
+              html
+            }
+            duration
+            title
+          }
+        }
+      }
+    }`
+ 
+  }
+
   
 }
