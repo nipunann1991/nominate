@@ -1,29 +1,21 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+<section>
 <div class="header-title">
     <h2>Featured journeys</h2>
-
-    <p class="header-body">Explore in-depth topics and guided paths, or learn how to tackle specific tasks. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At.</p>
-    
+    <p class="p-0 m-0">Explore in-depth topics and guided paths, or learn how to tackle specific tasks.</p>
 </div>
-
 
 <div class="row journey-wrapper">
     <ng-container >
         <div class="journey-box col col-lg-3" *ngFor="let journey of journies" [routerLink]="journey.url">
            <div class="journey-box-inner">
-                <div class="logo-cta"> 
-                    <a href="" class="new-button button btn-primary">New</a>
-                </div>
                 <h3>{{journey.title}}</h3> 
-
                 <div class="journey-topics">
-                    <ul>
-                        <li><span></span></li>
+                    <ul>                        
                         <li *ngFor="let category of journey.categories; let i = index;" >
-                            <ng-container *ngIf="i < 2">{{category | beautifyText}}</ng-container> 
-                        </li>
-                        
+                           <ng-container *ngIf="i < 2">{{category | beautifyText}}</ng-container>  &nbsp;&nbsp;
+                        </li>                        
                     </ul> 
                 </div>
                 <span class="duration">{{journey.totalDuration | timeConverter }}</span> 
@@ -116,3 +108,4 @@
          </div> -->
     </ng-container>
 </div>
+</section>

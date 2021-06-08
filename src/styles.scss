@@ -85,6 +85,7 @@ a.secondary {
 h1 {
     font-size: 2.6rem;
     line-height: 3rem;
+    margin-bottom: 1.5rem;
 }
 
 h2 {
@@ -95,6 +96,22 @@ h2 {
 h3 {
     font-size: 1rem;
     line-height: 1.4rem;
+    margin-bottom: 1rem;
+    &.lg {
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+    }
+}
+
+h4 {
+    font-size: 1rem;
+    line-height: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+h5 {
+    font-size: .8rem;
+    line-height: 1rem;
     margin-bottom: 1rem;
 }
 
@@ -107,11 +124,7 @@ a {
 
 .header-title {
     padding: 1rem 0;
-    margin: 2rem 0; 
- 
-    // p.header-body {
-    //     width: 50%;
-    // }
+    margin: 1rem 0; 
 }
 
 p {
@@ -150,11 +163,6 @@ p {
         justify-content: space-between;
 
         li {
-
-            &:last-child {
-                margin: 0 0 0 3rem;
-            }
-
             &:not(:first-child) {
                 &:before {
                     content: '';

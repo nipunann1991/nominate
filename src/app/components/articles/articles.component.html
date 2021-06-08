@@ -1,98 +1,94 @@
- <div class="row articles-header header-title">
-     <div class="col-lg-10">
-        <div class="left-title header ">
-            <h2>Latest articles</h2>
-            <p class="header-body">The latest hints and tips carefully handpicked to grow your business.</p>
-         </div> 
-     </div>
-     <div class="col-lg-2">
-        <div class="sort-list">
-            <select name="topic" class="topic" (change)="onChangeTopics($event.target.value)">
-                <option value="">Browse All Topics</option>
-                <option *ngFor="let topic of topics" [value]="topic">{{topic | beautifyText }}</option>
-            </select>
-         </div>
+ <section>
+    <div class="row articles-header header-title">
+        <div class="col-lg-10">
+            <div class="left-title header ">
+                <h2>Latest articles</h2>
+                <p class="header-body">The latest hints and tips carefully handpicked to grow your business.</p>
+            </div> 
+        </div>
+        <div class="col-lg-2">
+            <div class="sort-list">
+                <select name="topic" class="topic" (change)="onChangeTopics($event.target.value)">
+                    <option value="">Browse All Topics</option>
+                    <option *ngFor="let topic of topics" [value]="topic">{{topic | beautifyText }}</option>
+                </select>
+            </div>
+        </div>   
     </div>
 
+    <div class="row articles-wrapper">
 
-     
-     
-   
-</div>
+        <ng-container *ngIf="articles.length > 0">
+            <div class="col-lg-5 main-article" *ngIf="articles.left.length > 0">
+                <ng-container *ngFor="let article of articles.left; let i = index">
 
- <div class="row articles-wrapper">
-
-    <ng-container *ngIf="articles.length > 0">
-        <div class="col-lg-5 main-article" *ngIf="articles.left.length > 0">
-            <ng-container *ngFor="let article of articles.left; let i = index">
-
-                <div class="article-box" >
-                    <div class="article-box-inner" >
-                        <div class="image-area" *ngIf="i<2">
-                            <img [src]="article.coverImage?.url" alt="">
-                        </div>
-                        <div class="title-n-description-area">
-                            <h2>{{article.title}}</h2>
-                            <p *ngIf="i<1" [innerHTML]="article.description | truncateText:[226]"></p>
-                        </div>
-                        <div class="footer-area">
-                            <div class="topics">
-                                <ul>
-                                    <li>{{article.topics[0] | beautifyText}}</li>
-                                    <li>{{article.authorS[0]?.name}}</li>
-                                </ul>
-                
-                                <a *ngIf="i == 0 " [routerLink]="['/articles/view-article/'+article.id ]" class="read-article-button v">Read article</a>
-                
+                    <div class="article-box" >
+                        <div class="article-box-inner" >
+                            <div class="image-area" *ngIf="i<2">
+                                <img [src]="article.coverImage?.url" alt="">
                             </div>
-                
-                           
-                            
-                        </div>
-                    </div> 
-                </div>   
-            </ng-container>  
-        </div>
-        
-        <div class="col-lg-7 other-articles" *ngIf="articles.right.length > 0">
-            <ng-container *ngFor="let article of articles.right; let i = index"> 
-
-                <!--// // // Should HIDE the first article-->
-
-                <div class="article-box col-lg-6" >
-                    <div class="article-box-inner" >
-                        
-                        <div class="title-n-description-area">
-                            <div class="header-area">
+                            <div class="title-n-description-area">
+                                <h2>{{article.title}}</h2>
+                                <p *ngIf="i<1" [innerHTML]="article.description | truncateText:[226]"></p>
+                            </div>
+                            <div class="footer-area">
                                 <div class="topics">
                                     <ul>
-                                        <li>{{ article.topics[0] | beautifyText}}</li>
+                                        <li>{{article.topics[0] | beautifyText}}</li>
                                         <li>{{article.authorS[0]?.name}}</li>
                                     </ul>
+                    
+                                    <a *ngIf="i == 0 " [routerLink]="['/articles/view-article/'+article.id ]" class="read-article-button v">Read article</a>
+                    
                                 </div>
+                    
+                            
+                                
                             </div>
-                        </div>  
-                
-                        <div class="image-area" *ngIf="i<1">
-                            <img [src]="article.coverImage?.url" alt="">
-                        </div>
-                        <div class="title-n-description-area">
-                            <h3>{{article.title}}</h3>
-                            <p *ngIf="i<0" [innerHTML]="article.description"></p>
-                        </div>
-                        <div class="footer-area">
-                            <div class="sub-read-article-link"><a [routerLink]="['/articles/view-article/'+article.id ]" class="read-article-link button">Read article</a></div>
-                        </div>
-                    </div> 
-                </div>   
-            </ng-container> 
-        </div>
-    
-    </ng-container> 
-    <ng-container *ngIf="articles.length == 0">
-        <h4>No results found.</h4>
-    </ng-container>
-    
- </div>
+                        </div> 
+                    </div>   
+                </ng-container>  
+            </div>
+            
+            <div class="col-lg-7 other-articles" *ngIf="articles.right.length > 0">
+                <ng-container *ngFor="let article of articles.right; let i = index"> 
 
- 
+                    <!--// // // Should HIDE the first article-->
+
+                    <div class="article-box">
+                        <div class="article-box-inner" >
+                            
+                            <div class="title-n-description-area">
+                                <div class="header-area">
+                                    <div class="topics">
+                                        <ul>
+                                            <li>{{ article.topics[0] | beautifyText}}</li>
+                                            <li>{{article.authorS[0]?.name}}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>  
+                    
+                            <div class="image-area" *ngIf="i<1">
+                                <img [src]="article.coverImage?.url" alt="">
+                            </div>
+                            <div class="title-n-description-area">
+                                <h3>{{article.title}}</h3>
+                                <p *ngIf="i<0" [innerHTML]="article.description"></p>
+                            </div>
+                            <div class="footer-area">
+                                <div class="sub-read-article-link"><a [routerLink]="['/articles/view-article/'+article.id ]" class="read-article-link button">Read article</a></div>
+                            </div>
+                        </div> 
+                    </div>   
+                </ng-container> 
+            </div>
+        
+        </ng-container> 
+        <ng-container *ngIf="articles.length == 0">
+            <h4>No results found.</h4>
+        </ng-container>
+        
+    </div>
+
+</section>
