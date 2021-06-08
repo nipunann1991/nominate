@@ -113,6 +113,15 @@ export class ArticleService {
               html
             }
           }
+
+          ... on TemplateSummary {
+            id
+            title
+            duration
+            bodyContent {
+              html
+            }
+          }
         }
       }
     }`

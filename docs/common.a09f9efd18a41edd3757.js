@@ -26,6 +26,11 @@
               title
               duration
             }
+            ... on TemplateSummary {
+              id
+              title
+              duration
+            }
           }
         }
       }
@@ -66,6 +71,12 @@
               title
             }
             ... on TemplateKnowledgeCheck {
+              id
+              title
+              duration
+            }
+
+            ... on TemplateSummary {
               id
               title
               duration
@@ -159,6 +170,15 @@
             title
             duration
             question  
+            bodyContent {
+              html
+            }
+          }
+
+          ... on TemplateSummary {
+            id
+            title
+            duration
             bodyContent {
               html
             }

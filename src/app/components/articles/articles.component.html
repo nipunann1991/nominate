@@ -51,37 +51,71 @@
             </div>
             
             <div class="col-lg-7 other-articles" *ngIf="articles.right.length > 0">
-                <ng-container *ngFor="let article of articles.right; let i = index"> 
-
-                    <!--// // // Should HIDE the first article-->
-
-                    <div class="article-box">
-                        <div class="article-box-inner" >
-                            
-                            <div class="title-n-description-area">
-                                <div class="header-area">
-                                    <div class="topics">
-                                        <ul>
-                                            <li>{{ article.topics[0] | beautifyText}}</li>
-                                            <li>{{article.authorS[0]?.name}}</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>  
+                <div class="latest-posts">
+                    <ng-container *ngFor="let article of articles.right; let i = index">  
                     
-                            <div class="image-area" *ngIf="i<1">
-                                <img [src]="article.coverImage?.url" alt="">
-                            </div>
-                            <div class="title-n-description-area">
-                                <h3>{{article.title}}</h3>
-                                <p *ngIf="i<0" [innerHTML]="article.description"></p>
-                            </div>
-                            <div class="footer-area">
-                                <div class="sub-read-article-link"><a [routerLink]="['/articles/view-article/'+article.id ]" class="read-article-link button">Read article</a></div>
-                            </div>
-                        </div> 
-                    </div>   
-                </ng-container> 
+                        <ng-container *ngIf="i < 2">
+                            <div class="article-box">
+                                <div class="article-box-inner" >
+                                    
+                                    <div class="title-n-description-area">
+                                        <div class="header-area">
+                                            <div class="topics">
+                                                <ul>
+                                                    <li>{{ article.topics[0] | beautifyText}}</li>
+                                                    <li>{{article.authorS[0]?.name}}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>  
+                            
+                                    <div class="image-area" *ngIf="i<1">
+                                        <img [src]="article.coverImage?.url" alt="">
+                                    </div>
+                                    <div class="title-n-description-area">
+                                        <h3>{{article.title}}</h3>
+                                        <p *ngIf="i<0" [innerHTML]="article.description"></p>
+                                    </div>
+                                    <div class="footer-area">
+                                        <div class="sub-read-article-link"><a [routerLink]="['/articles/view-article/'+article.id ]" class="read-article-link button">Read article</a></div>
+                                    </div>
+                                </div> 
+                            </div>   
+                        </ng-container> 
+                       
+                    </ng-container> 
+                </div> 
+
+                <div class="old-posts">
+                    <ng-container *ngFor="let article of articles.right; let i = index">   
+                        <ng-container *ngIf="(i > 1)">
+                            <div class="article-box">
+                                <div class="article-box-inner" >
+                                    
+                                    <div class="title-n-description-area">
+                                        <div class="header-area">
+                                            <div class="topics">
+                                                <ul>
+                                                    <li>{{ article.topics[0] | beautifyText}}</li>
+                                                    <li>{{article.authorS[0]?.name}}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>  
+                             
+                                    <div class="title-n-description-area">
+                                        <h3>{{article.title}}</h3> 
+                                    </div>
+                                    <div class="footer-area">
+                                        <div class="sub-read-article-link"><a [routerLink]="['/articles/view-article/'+article.id ]" class="read-article-link button">Read article</a></div>
+                                    </div>
+                                </div> 
+                            </div>   
+                        </ng-container> 
+
+                    </ng-container> 
+                </div>
+                
             </div>
         
         </ng-container> 

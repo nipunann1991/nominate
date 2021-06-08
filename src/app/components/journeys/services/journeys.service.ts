@@ -38,6 +38,11 @@ export class JourneysService {
               title
               duration
             }
+            ... on TemplateSummary {
+              id
+              title
+              duration
+            }
           }
         }
       }
@@ -83,6 +88,12 @@ export class JourneysService {
               title
             }
             ... on TemplateKnowledgeCheck {
+              id
+              title
+              duration
+            }
+
+            ... on TemplateSummary {
               id
               title
               duration

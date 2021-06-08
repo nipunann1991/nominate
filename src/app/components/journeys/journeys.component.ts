@@ -37,16 +37,15 @@ export class JourneysComponent implements OnInit {
 
   setJourneyData(data){
 
-    let categories = []
-    let totalDuration = []
-  
+     
     data.forEach(element => {
-
+      let categories = []
+      let totalDuration = []
+      
       element.articles.filter(x=> {
         categories = categories.concat(x.topics);
          
-        x.templates.filter(y => {
-         
+        x.templates.filter(y => { 
           totalDuration = totalDuration.concat(y.duration); 
         })
 
