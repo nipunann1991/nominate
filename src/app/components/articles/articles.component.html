@@ -33,7 +33,7 @@
                         </div>
                         <div class="title-n-description-area">
                             <h2>{{article.title}}</h2>
-                            <p *ngIf="i<1" [innerHTML]="article.description"></p>
+                            <p *ngIf="i<1" [innerHTML]="article.description | truncateText:[226]"></p>
                         </div>
                         <div class="footer-area">
                             <div class="topics">
