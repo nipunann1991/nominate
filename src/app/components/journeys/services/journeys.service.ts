@@ -33,6 +33,11 @@ export class JourneysService {
               duration
               title
             }
+            ... on TemplateKnowledgeCheck {
+              id
+              title
+              duration
+            }
           }
         }
       }
@@ -76,8 +81,12 @@ export class JourneysService {
               duration
               title
             }
-          }
-          
+            ... on TemplateKnowledgeCheck {
+              id
+              title
+              duration
+            }
+          } 
         }
       }
     }` 

@@ -13,6 +13,9 @@ import { ViewportScroller } from '@angular/common';
 export class ViewArticleComponent implements OnInit {
 
   articleData: any = [];
+  correctAnswers: any = []
+  isAnswerCorrect: boolean;
+  isAnswerSelected: boolean = false;
 
   constructor(
     private apollo: Apollo,
@@ -49,4 +52,16 @@ export class ViewArticleComponent implements OnInit {
   scrollToSection(elementId): void { 
     this.viewportScroller.scrollToAnchor("section"+(elementId + 1));
   } 
+
+  checkSingleAnswer(question, i){
+    this.isAnswerSelected = true;
+    
+    if(question.correctAnswer == i + 1){ 
+      this.isAnswerCorrect = true;
+    }else{
+      this.isAnswerCorrect =  false;
+    } 
+  }
+
+  
 }
