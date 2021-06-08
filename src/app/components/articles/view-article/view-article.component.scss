@@ -38,6 +38,9 @@ ul.authors {
             &:last-child {
                 padding-bottom: 0;
             }
+            a {
+                width: 12rem;
+            }
         }
     }
 }
