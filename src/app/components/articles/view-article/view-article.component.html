@@ -100,8 +100,8 @@
                                         </label>
                                     </span> 
                                 </div>                      
-                                <div class="answer-feedback corrct" *ngIf="isAnswerCorrect && isAnswerSelected">{{question.correctAnswerText}}</div>
-                                <div class="answer-feedback incorrct" *ngIf="!isAnswerCorrect && isAnswerSelected">{{question.wrongAnswerText}}</div>                   
+                                <div class="answer-feedback correct" *ngIf="isAnswerCorrect && isAnswerSelected">{{question.correctAnswerText}}</div>
+                                <div class="answer-feedback incorrect" *ngIf="!isAnswerCorrect && isAnswerSelected">{{question.wrongAnswerText}}</div>                   
                             </div>
                         </ng-container>
                     </ng-container>
