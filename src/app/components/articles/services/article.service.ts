@@ -103,6 +103,16 @@ export class ArticleService {
               }
             }
           }
+
+          ... on TemplateKnowledgeCheck {
+            id
+            title
+            duration
+            question  
+            bodyContent {
+              html
+            }
+          }
         }
       }
     }`

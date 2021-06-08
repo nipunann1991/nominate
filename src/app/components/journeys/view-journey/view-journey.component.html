@@ -1,50 +1,90 @@
- 
-<div class="container-fluid journey-page">
-    <div class="container"> 
-        <div class="journey-container row">
-            <div class="journey-header col-md-12">
-                <img [src]="journeyData.coverImage" width="100%" alt="">
-                <h1>{{journeyData.title}}</h1>
-                <ul>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<section class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="cover-img">
+                <img [src]="journeyData.coverImage" alt="">
+            </div>            
+        </div>        
+    </div>    
+</section>
+
+<section>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <h2>{{journeyData.title}}</h2>
+                <ul class="d-flex dotlist align-items-center">
                     <li>General</li>
+                    <li><i class="fa fa-circle"></i></li>
                     <li>{{journeyData.totalDuration | timeConverter}}</li>
+                    <li><i class="fa fa-circle"></i></li>
                     <li>{{journeyData.credits}} CPD Credits</li>
                 </ul>
-                <p>Created by {{ getAuthers(journeyData.authours) }}</p>
-
-                <h2>About this journey</h2>
-                <p [innerHTML]="journeyData.summary"></p>
-
-                <div class="journey-appendix row">
-                    <div class="appendix col-md-6">
-                        <h3>We’ll cover</h3>
-                        <p [innerHTML]="journeyData.appendix"></p>
-                    </div>
-                    <div class="whats-included col-md-6">
-                        <h4>What’s included</h4>
-                    </div>
-                </div> 
+                <label class="created-by">Created by {{ getAuthers(journeyData.authours) }}</label>
             </div>
-           
-            <hr/>
-            
-            <div class="journey-steps col-md-12">
-                <h2>Journey steps</h2>  
-                <ul class="journey-desc">
+            <div class="col-lg-2 d-flex justify-content-end">  
+                <div>
+                    <button class="btn-primary lg">Start journey</button>
+                </div>                
+            </div>
+        </div>        
+    </div>
+</section>
+
+<section class="sm">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <h3>About this journey</h3>
+                <p [innerHTML]="journeyData.summary"></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-5">
+                <h4>We’ll cover</h4>
+                <p [innerHTML]="journeyData.appendix"></p>
+            </div>
+            <div class="col-lg-4 d-flex justify-content-end">
+                <div class="topic-list-holder">
+                    <h5>What’s included</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-journey-steps">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-9 border-on">
+                <h3>Journey steps</h3>  
+                <ul class="d-flex dotlist align-items-center">
                     <li>{{journeyData.articles?.length}} articles</li>
+                    <li><i class="fa fa-circle"></i></li>
                     <li>{{journeyData.totalDuration | timeConverter}}</li>
+                    <li><i class="fa fa-circle"></i></li>
                     <li>{{journeyData.credits}} CPD Credits</li>
                 </ul> 
-                <ul class="journey-articles">
-                    <li class="articles" *ngFor="let article of journeyData.articles">
-                        <strong>{{article.title}}</strong> <span class="duration">{{article.duration | timeConverter}} {{article.type | lowercase}}</span>
+            </div>
+        </div>
+        <div class="row justify-content-center journey-article-list">
+            <div class="col-lg-9">
+                <ul>
+                    <li ng-click="" class="d-flex justify-content-between" *ngFor="let article of journeyData.articles">
+                        <strong>1. {{article.title}}</strong> <span class="duration">{{article.duration | timeConverter}} {{article.type | lowercase}}</span>
                     </li> 
                 </ul> 
             </div>
-
-           
-        </div> 
+        </div>
     </div>
-</div>
+</section>
 
- 
+
+

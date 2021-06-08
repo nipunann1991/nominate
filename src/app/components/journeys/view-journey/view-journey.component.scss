@@ -1,19 +1,68 @@
 
-.journey-container{
-    width: 800px;
-    margin: auto;
+.cover-img {
+    background-color: #d5d5d5;
+    img {
+        height: 20rem;
+    }
+}
 
-    ul.journey-articles{
-        padding-left: 0;
-        border-top: 1px #d5d5d5 solid;
-        li{
-            padding: 0.5rem;
-            list-style: none;
-            overflow: hidden;
-            border-bottom: 1px #d5d5d5 solid;
+h2 {
+    margin-bottom: 1rem;
+}
 
-            span.duration{
-                float: right;
+ul.dotlist {
+    li {
+        font-size: 0.8rem;
+        padding-right: 1.2rem;
+        i {
+            font-size: 0.4rem;
+            line-height: 0.4rem;
+            color: #5757F7;
+            display: block;
+        }
+    }
+}
+
+.created-by {
+    font-size: 0.7rem;
+    padding-top: .5rem;
+}
+
+.topic-list-holder {
+    border: 1px solid #171714;
+    padding: 1.5rem;
+    width: 15rem;
+    ul {
+        li {
+            padding-bottom: 1rem;
+            justify-content: space-between;
+            &:last-child {
+                padding-bottom: 0;
+            }
+        }
+    }
+}
+
+.section-journey-steps {
+    margin-bottom: 10rem;
+    .container .border-on {
+        border-top: 1px dotted #171714;
+        padding-top: 2rem;
+    }
+    
+    .journey-article-list {
+        ul {
+            margin-top: 1.5rem;
+            li {
+                border-top: 1px solid #171714;
+                padding: 1rem 2rem;
+                cursor: pointer;
+                &:last-child {
+                    border-bottom: 1px solid #171714;
+                }
+                &:hover {
+                    background-color: #F6F6FF;
+                }
             }
         }
     }

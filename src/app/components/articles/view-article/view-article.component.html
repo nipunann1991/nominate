@@ -29,7 +29,6 @@
                     </div>
                 </li>
             </ul>
-
         </div>
         <div class="col-lg-5 d-flex justify-content-center">
             <div class="topic-list-holder">
@@ -83,6 +82,28 @@
                 
              
         </ng-container>
+        <ng-container *ngIf="template.__typename == 'TemplateKnowledgeCheck'"> 
+            <ng-container  *ngFor="let question of template.question; let q = index"> 
+                <div *ngIf="question.type == 1">
+                     
+                    <h4>{{question.questionTitle}}</h4>
+                    <div class="form-check" *ngFor="let answer of question.questionAnswers; let i = index">
+                        <span  (click)="checkSingleAnswer(question,i)">
+                            <input class="form-check-input" name="flexRadioDefault" type="radio" id="ansewer{{i}}">
+                            <label class="form-check-label" for="ansewer{{i}}">
+                                {{answer}}
+                            </label>
+                        </span> 
+                    </div>
+                     
+                    <div *ngIf="isAnswerCorrect && isAnswerSelected">{{question.correctAnswerText}}</div>
+                    <div *ngIf="!isAnswerCorrect && isAnswerSelected">{{question.wrongAnswerText}}</div>
+                   
+                </div>
+            </ng-container>
+        </ng-container>
+
+        
         
           
         <button class="btn btn-primary" (click)="scrollToSection(i + 1 )" >Continue</button> 
