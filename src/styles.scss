@@ -23,6 +23,9 @@ body {
 
 section {
     margin-bottom: 3rem;
+    &.sm {
+        margin-bottom: 1rem;
+    }
 }
 
 ul {
@@ -70,6 +73,10 @@ a.secondary {
     background-color: $primary-blue;
     border: 1px solid $primary-blue; 
     min-width: 6rem;
+    padding: .7rem 1rem; 
+    &.lg {
+        padding: 1rem 1.5rem; 
+    }
 }
 
 button.btn-secondary,
@@ -82,21 +89,43 @@ a.secondary {
 }
 
 h1 {
+<<<<<<< HEAD
     font-size: 3.5rem;
     line-height: 5rem;
     margin: 0 0 2.5rem 0;
+=======
+    font-size: 2rem;
+    line-height: 2.2rem;
+>>>>>>> 0737962c8c655fdb135c996b36e9e8f374f3bb92
 }
 
 h2 {
-    font-size: 1.8rem;
-    line-height: 2rem;
+    font-size: 1.6rem;
+    line-height: 1.8rem;
     margin-bottom: 1.5rem;
 }
 
 h3 {
+    font-size: 1.2rem;
+    line-height: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+h4 {
     font-size: 1rem;
+<<<<<<< HEAD
     line-height: 1.3rem;
     margin-bottom: 1.5rem;
+=======
+    line-height: 1.2rem;
+    margin-bottom: .5rem;
+}
+
+h5 {
+    font-size: 0.8rem;
+    line-height: 1rem;
+    margin-bottom: .5rem;
+>>>>>>> 0737962c8c655fdb135c996b36e9e8f374f3bb92
 }
 
 a {
@@ -109,15 +138,11 @@ a {
 .header-title {
     padding: 1rem 0;
     margin: 2rem 0; 
- 
-    // p.header-body {
-    //     width: 50%;
-    // }
 }
 
 p {
-    font-size: 1rem;
-    line-height: 1.5;
+    font-size: 0.8rem;
+    line-height: 1.4rem;
 }
 
 .topics {
@@ -134,11 +159,12 @@ p {
                     border-radius: 50%;
                     background-color: #5757F7;
                   }
-            }
+            } 
         }
     }
 }
 
+<<<<<<< HEAD
 .journey-topics {
     display: flex;
     flex-direction: row;
@@ -200,6 +226,8 @@ p {
 //     }
 // }
 
+=======
+>>>>>>> 0737962c8c655fdb135c996b36e9e8f374f3bb92
 header {
     padding: 1.5rem 0;
     input {
