@@ -58,6 +58,7 @@ export class JourneysService {
           url
         }
         articles {
+          id
           title
           type
           topics

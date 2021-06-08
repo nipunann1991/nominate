@@ -27,6 +27,7 @@ export class ViewArticleComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    window.scroll(0,0)
     this. getSingleArticle() 
   }
 
@@ -55,7 +56,7 @@ export class ViewArticleComponent implements OnInit {
 
   checkSingleAnswer(question, i){
     this.isAnswerSelected = true;
-    
+
     if(question.correctAnswer == i + 1){ 
       this.isAnswerCorrect = true;
     }else{
