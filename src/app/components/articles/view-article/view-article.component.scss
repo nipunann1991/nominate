@@ -63,6 +63,9 @@ ul.authors {
 
 .article-temp-list {
     .row {
+        h5 {
+            margin-bottom: 2rem;
+        }
         .template-video {
             height: 26rem;
             position: relative;
@@ -86,5 +89,53 @@ ul.authors {
         .btn-primary {
             margin-top: 1rem;
         }  
+
+        .nav.nav-tabs {
+            margin-top: 1rem;
+            border-bottom-color: #171714;
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            .nav-item {                
+                .nav-link {
+                    padding: .5rem 1rem;
+                    margin: 0 2rem;
+                    border: 0;
+                    color: #2C2C7C;
+                    font-weight: bold;
+                    &.active {
+                        border-bottom: 6px solid #5757F7;                        
+                    }
+                    &:first-child {
+                        margin-left: 0;
+                    }
+                }
+            }
+        }
+
+        .form-check {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            label {
+                padding-left: 1rem;
+            }
+            .form-check-input {
+                padding: 0;
+                font-size: unset;
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+        }
+
+        .answer-feedback {
+            padding: 1rem;
+            font-weight: bold;
+            margin-top: 1rem;
+            &.correct {
+                background-color: #2EBAC1;
+            }
+            &.incorrect {
+                background-color: #EF3139;
+            }
+        }
     }
 }

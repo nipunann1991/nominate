@@ -74,8 +74,7 @@
                         <ul class="nav nav-tabs" id="myTab" role="tablist" >
                             <li class="nav-item" *ngFor="let tab of template.tabsContent; let i = index;">
                                 <button class="nav-link" [ngClass]="{'active': i == 0}" [attr.data-bs-target]="'#tab' + i"   id="tab-{{i}}" data-bs-toggle="tab"  type="button" role="tab" >{{tab.tabheadertitle}} {{i}}</button>
-                            </li>
-                            
+                            </li>                            
                         </ul>
                         <div class="tab-content" id="myTabContent">
                             
@@ -90,19 +89,19 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <ng-container *ngIf="template.__typename == 'TemplateKnowledgeCheck'"> 
-                        <ng-container  *ngFor="let question of template.question; let q = index"> 
+                        <ng-container *ngFor="let question of template.question; let q = index"> 
                             <div *ngIf="question.type == 1">                     
-                                <h4>{{question.questionTitle}}</h4>
+                                <h5>{{question.questionTitle}}</h5>
                                 <div class="form-check" *ngFor="let answer of question.questionAnswers; let i = index">
-                                    <span  (click)="checkSingleAnswer(question,i)">
+                                    <span class="d-flex align-items-center" (click)="checkSingleAnswer(question,i)">
                                         <input class="form-check-input" name="flexRadioDefault" type="radio" id="ansewer{{i}}">
                                         <label class="form-check-label" for="ansewer{{i}}">
                                             {{answer}}
                                         </label>
                                     </span> 
-                                </div>                     
-                                <div *ngIf="isAnswerCorrect && isAnswerSelected">{{question.correctAnswerText}}</div>
-                                <div *ngIf="!isAnswerCorrect && isAnswerSelected">{{question.wrongAnswerText}}</div>                   
+                                </div>                      
+                                <div class="answer-feedback corrct" *ngIf="isAnswerCorrect && isAnswerSelected">{{question.correctAnswerText}}</div>
+                                <div class="answer-feedback incorrct" *ngIf="!isAnswerCorrect && isAnswerSelected">{{question.wrongAnswerText}}</div>                   
                             </div>
                         </ng-container>
                     </ng-container>
