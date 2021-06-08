@@ -8,6 +8,10 @@
         padding: 2rem 1.5rem;
         margin-bottom: 2rem;
 
+        h3 {
+            margin-top: 2rem;
+        }
+
         .logo-cta {
             display: flex;
             flex-direction: row;
@@ -19,18 +23,12 @@
                 height: 57px;
             }
             a.new-button {
-                max-width: 150px;
-                line-height: 1.5;
-                background-color: #5757F7;
+                min-width: 1.5rem;
+                padding: 0.4rem 0.7rem; 
                 
             }
         }
 
-        ul {
-            li {
-                text-transform: uppercase;
-            }
-        }
 
         .duration {
             color: #666666;

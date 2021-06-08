@@ -13,17 +13,20 @@
         <div class="journey-box col col-lg-3" *ngFor="let journey of journies" [routerLink]="journey.url">
            <div class="journey-box-inner">
                 <div class="logo-cta">
-                    <img class="logo-icon" src="https://media.graphcms.com/w4C8GiY2Q1efPPkRZzc1" />
-                    <a href="" class="new-button button">New</a>
+                    <img class="logo-icon" src="assets/seo-icon.svg" />
+                    <a href="" class="new-button button btn-primary">New</a>
                 </div>
                 <h3>{{journey.title}}</h3> 
-                <ul>
-                    <li><span></span></li>
-                    <li *ngFor="let category of journey.categories; let i = index;" >
-                        <ng-container *ngIf="i < 2">{{category | beautifyText}}</ng-container> 
-                    </li>
-                    
-                </ul> 
+
+                <div class="journey-topics">
+                    <ul>
+                        <li><span></span></li>
+                        <li *ngFor="let category of journey.categories; let i = index;" >
+                            <ng-container *ngIf="i < 2">{{category | beautifyText}}</ng-container> 
+                        </li>
+                        
+                    </ul> 
+                </div>
                 <span class="duration">{{journey.totalDuration | timeConverter }}</span> 
 
                 <div class="rating">
