@@ -51,61 +51,70 @@
     </ul>
 </section>
 
+<section class="container article-temp-list">    
+    <ng-container *ngFor="let template of articleData.templates; let i = index;" >
+        <div id="section{{i + 1}}">
 
-<ng-container *ngFor="let template of articleData.templates; let i = index;" >
-    <div id="section{{i + 1}}" class="template-section" >
-        <div class="template-video"  *ngIf="template.__typename == 'TemplateVideo'" > 
-            <iframe [src]="trustURL(template.vimeoVideoUrl)" width="800" height="500" frameborder="0"></iframe>
-        </div>
-        <div class="template-cover-img"  *ngIf="template.__typename == 'TemplateFreeText'" >
-            <img [src]="template.coverImage?.url" alt="">
-        </div>
-        <h2>{{template.title}}</h2>
-        <p [innerHTML]="template.bodyContent?.html"></p>
-
-        <ng-container *ngIf="template.__typename == 'TemplateHorizontalTab'"> 
-             
-                <ul class="nav nav-tabs" id="myTab" role="tablist" >
-                    <li class="nav-item" *ngFor="let tab of template.tabsContent; let i = index;">
-                      <button class="nav-link" [ngClass]="{'active': i == 0}" [attr.data-bs-target]="'#tab' + i"   id="tab-{{i}}" data-bs-toggle="tab"  type="button" role="tab" >{{tab.tabheadertitle}} {{i}}</button>
-                    </li>
-                    
-                </ul>
-                <div class="tab-content" id="myTabContent">
-                 
-                    <div *ngFor="let tab of template.tabsContent; let i = index;" class="tab-pane fade" [ngClass]="{'show active': i == 0 }" id="tab{{i}}" role="tabpanel">
-                        <div [innerHTML]="tab.content?.html"></div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="template-cover-img" *ngIf="template.__typename == 'TemplateFreeText'" >
+                        <img [src]="template.coverImage?.url" alt="">
                     </div>
-                     
-                </div> 
-
-                
-             
-        </ng-container>
-        <ng-container *ngIf="template.__typename == 'TemplateKnowledgeCheck'"> 
-            <ng-container  *ngFor="let question of template.question; let q = index"> 
-                <div *ngIf="question.type == 1">
-                     
-                    <h4>{{question.questionTitle}}</h4>
-                    <div class="form-check" *ngFor="let answer of question.questionAnswers; let i = index">
-                        <span  (click)="checkSingleAnswer(question,i)">
-                            <input class="form-check-input" name="flexRadioDefault" type="radio" id="ansewer{{i}}">
-                            <label class="form-check-label" for="ansewer{{i}}">
-                                {{answer}}
-                            </label>
-                        </span> 
-                    </div>
-                     
-                    <div *ngIf="isAnswerCorrect && isAnswerSelected">{{question.correctAnswerText}}</div>
-                    <div *ngIf="!isAnswerCorrect && isAnswerSelected">{{question.wrongAnswerText}}</div>
-                   
+                    <div class="template-video" *ngIf="template.__typename == 'TemplateVideo'" > 
+                        <iframe [src]="trustURL(template.vimeoVideoUrl)" frameborder="0"></iframe>
+                    </div>                    
+                    <h2>{{template.title}}</h2>
+                    <p [innerHTML]="template.bodyContent?.html"></p>
                 </div>
-            </ng-container>
-        </ng-container>
+            </div>
 
-        
-        
-          
-        <button class="btn btn-primary" (click)="scrollToSection(i + 1 )" >Continue</button> 
-    </div> 
-</ng-container> 
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <ng-container *ngIf="template.__typename == 'TemplateHorizontalTab'">              
+                        <ul class="nav nav-tabs" id="myTab" role="tablist" >
+                            <li class="nav-item" *ngFor="let tab of template.tabsContent; let i = index;">
+                                <button class="nav-link" [ngClass]="{'active': i == 0}" [attr.data-bs-target]="'#tab' + i"   id="tab-{{i}}" data-bs-toggle="tab"  type="button" role="tab" >{{tab.tabheadertitle}} {{i}}</button>
+                            </li>
+                            
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            
+                            <div *ngFor="let tab of template.tabsContent; let i = index;" class="tab-pane fade" [ngClass]="{'show active': i == 0 }" id="tab{{i}}" role="tabpanel">
+                                <div [innerHTML]="tab.content?.html"></div>
+                            </div>                     
+                        </div> 
+                    </ng-container>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <ng-container *ngIf="template.__typename == 'TemplateKnowledgeCheck'"> 
+                        <ng-container  *ngFor="let question of template.question; let q = index"> 
+                            <div *ngIf="question.type == 1">                     
+                                <h4>{{question.questionTitle}}</h4>
+                                <div class="form-check" *ngFor="let answer of question.questionAnswers; let i = index">
+                                    <span  (click)="checkSingleAnswer(question,i)">
+                                        <input class="form-check-input" name="flexRadioDefault" type="radio" id="ansewer{{i}}">
+                                        <label class="form-check-label" for="ansewer{{i}}">
+                                            {{answer}}
+                                        </label>
+                                    </span> 
+                                </div>                     
+                                <div *ngIf="isAnswerCorrect && isAnswerSelected">{{question.correctAnswerText}}</div>
+                                <div *ngIf="!isAnswerCorrect && isAnswerSelected">{{question.wrongAnswerText}}</div>                   
+                            </div>
+                        </ng-container>
+                    </ng-container>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8 border-0">
+                    <button class="btn-primary" (click)="scrollToSection(i + 1 )" >Continue</button> 
+                    <hr />
+                </div>
+            </div>            
+        </div> 
+    </ng-container> 
+</section>

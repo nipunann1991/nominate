@@ -23,9 +23,6 @@ body {
 
 section {
     margin-bottom: 3rem;
-    &.sm {
-        margin-bottom: 1rem;
-    }
 }
 
 ul {
@@ -55,7 +52,8 @@ textarea,
 select {
     font-family: 'Poppins', sans-serif;
     color: $slate-grey;
-    padding: .7rem 1rem; 
+    //padding: .7rem 1rem; 
+    padding: 1rem 1.2rem;
     border: 1px solid $slate-grey;
     font-size: 0.8rem;
     line-height: 0.8rem;
@@ -72,10 +70,6 @@ a.secondary {
     background-color: $primary-blue;
     border: 1px solid $primary-blue; 
     min-width: 6rem;
-    padding: .7rem 1rem; 
-    &.lg {
-        padding: 1rem 1.5rem; 
-    }
 }
 
 button.btn-secondary,
@@ -83,52 +77,47 @@ a.secondary {
     border: 1px solid $slate-grey; 
     background-color: $white;
     color: $slate-grey;
+    font-size: 0.85rem;
+    line-height: 0.85rem;
 }
 
 h1 {
-    font-size: 2rem;
-    line-height: 2.2rem;
+    font-size: 3.5rem;
+    line-height: 5rem;
+    margin: 0 0 2.5rem 0;
 }
 
 h2 {
-    font-size: 1.6rem;
-    line-height: 1.8rem;
+    font-size: 1.8rem;
+    line-height: 2rem;
     margin-bottom: 1.5rem;
 }
 
 h3 {
-    font-size: 1.2rem;
-    line-height: 1.4rem;
-    margin-bottom: 1rem;
-}
-
-h4 {
     font-size: 1rem;
-    line-height: 1.2rem;
-    margin-bottom: .5rem;
-}
-
-h5 {
-    font-size: 0.8rem;
-    line-height: 1rem;
-    margin-bottom: .5rem;
+    line-height: 1.3rem;
+    margin-bottom: 1.5rem;
 }
 
 a {
     text-decoration: underline;
     color: $slate-grey;
-    font-size: 0.8rem;
-    line-height: 0.8rem;
+    font-size: 0.85rem;
+    line-height: 0.85rem;
 }
 
 .header-title {
     padding: 1rem 0;
     margin: 2rem 0; 
+ 
+    // p.header-body {
+    //     width: 50%;
+    // }
 }
 
 p {
-    font-size: 0.8rem;
-    line-height: 1.4rem;
+    font-size: 1rem;
+    line-height: 1.5;
 }
 
 .topics {
@@ -149,6 +138,67 @@ p {
         }
     }
 }
+
+.journey-topics {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        li {
+
+            &:last-child {
+                margin: 0 0 0 3rem;
+            }
+
+            &:not(:first-child) {
+                &:before {
+                    content: '';
+                    position: absolute;
+                    left: -25px;
+                    width: 6px; 
+                    height: 6px;
+                    border-radius: 50%;
+                    background-color: #5757F7;
+                  }
+            }
+        }
+    }
+}
+
+// ul {
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: space-between;
+//     padding: 0;
+//     margin: 0;
+
+//     li {
+//         margin: 0 1rem 0 0;
+//         position: relative;
+//         display: flex;
+//         align-items: center;
+//         justify-content: flex-end;
+//         line-height: 1;
+//         color: #3C3C3B;
+
+//         span {
+//             &:before {
+//                 content: '';
+//                 position: absolute;
+//                 width: 6px; 
+//                 height: 6px;
+//                 border-radius: 50%;
+//                 background-color: #5757F7;
+//               }
+//         }
+//     }
+// }
 
 header {
     padding: 1.5rem 0;
