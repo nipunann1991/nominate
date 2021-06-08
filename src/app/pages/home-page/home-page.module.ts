@@ -6,6 +6,7 @@ import { HomePageComponent } from './home-page.component';
 import { ArticlesModule } from 'src/app/components/articles/articles.module';
 import { JourneysModule } from 'src/app/components/journeys/journeys.module';
 import { ViewJourneyModule } from 'src/app/components/journeys/view-journey/view-journey.module';
+import { BannerModule } from 'src/app/components/banner/banner.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ViewJourneyModule } from 'src/app/components/journeys/view-journey/view
     HomePageRoutingModule,
     ArticlesModule,
     JourneysModule,
-    ViewJourneyModule
+    ViewJourneyModule,
+    BannerModule
   ]
 })
 export class HomePageModule { }
