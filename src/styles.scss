@@ -23,6 +23,9 @@ body {
 
 section {
     margin-bottom: 3rem;
+    &.sm {
+        margin-bottom: 1rem;
+    }
 }
 
 ul {
@@ -69,6 +72,10 @@ a.secondary {
     background-color: $primary-blue;
     border: 1px solid $primary-blue; 
     min-width: 6rem;
+    padding: .7rem 1rem; 
+    &.lg {
+        padding: 1rem 1.5rem; 
+    }
 }
 
 button.btn-secondary,
@@ -79,20 +86,32 @@ a.secondary {
 }
 
 h1 {
-    font-size: 6rem;
-    line-height: 6.4rem;
+    font-size: 2rem;
+    line-height: 2.2rem;
 }
 
 h2 {
-    font-size: 1.8rem;
-    line-height: 2rem;
+    font-size: 1.6rem;
+    line-height: 1.8rem;
     margin-bottom: 1.5rem;
 }
 
 h3 {
+    font-size: 1.2rem;
+    line-height: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+h4 {
     font-size: 1rem;
     line-height: 1.2rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: .5rem;
+}
+
+h5 {
+    font-size: 0.8rem;
+    line-height: 1rem;
+    margin-bottom: .5rem;
 }
 
 a {
@@ -105,15 +124,11 @@ a {
 .header-title {
     padding: 1rem 0;
     margin: 2rem 0; 
- 
-    // p.header-body {
-    //     width: 50%;
-    // }
 }
 
 p {
-    font-size: 1rem;
-    line-height: 1.5;
+    font-size: 0.8rem;
+    line-height: 1.4rem;
 }
 
 .topics {
@@ -134,35 +149,6 @@ p {
         }
     }
 }
-
-// ul {
-//     display: flex;
-//     flex-direction: row;
-//     justify-content: space-between;
-//     padding: 0;
-//     margin: 0;
-
-//     li {
-//         margin: 0 1rem 0 0;
-//         position: relative;
-//         display: flex;
-//         align-items: center;
-//         justify-content: flex-end;
-//         line-height: 1;
-//         color: #3C3C3B;
-
-//         span {
-//             &:before {
-//                 content: '';
-//                 position: absolute;
-//                 width: 6px; 
-//                 height: 6px;
-//                 border-radius: 50%;
-//                 background-color: #5757F7;
-//               }
-//         }
-//     }
-// }
 
 header {
     padding: 1.5rem 0;
